@@ -1,0 +1,149 @@
+[gd_scene load_steps=18 format=3 uid="uid://bvmr1vukaure8"]
+
+[ext_resource type="Script" uid="uid://ku8kqyqwtu5c" path="res://assets/foliage/foliage.gd" id="1_gsrar"]
+[ext_resource type="Texture2D" uid="uid://dvlkmypwjfxh8" path="res://assets/foliage/texture/temp_cert_grad.tres" id="2_8jen4"]
+[ext_resource type="PackedScene" uid="uid://h8ghprvfoc76" path="res://assets/mesh/tree.glb" id="2_eqjgf"]
+[ext_resource type="Shader" uid="uid://35e25t16q2i0" path="res://assets/foliage/foliage.gdshader" id="3_gbuli"]
+[ext_resource type="Texture2D" uid="uid://b4nm63jg4l3k0" path="res://assets/foliage/texture/leaf2.png" id="4_jgcm1"]
+[ext_resource type="Texture2D" uid="uid://bxbcc6lewpnuy" path="res://assets/foliage/texture/leaf3.png" id="5_qsgvc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gsrar"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8jen4"]
+sky_material = SubResource("ProceduralSkyMaterial_gsrar")
+
+[sub_resource type="Environment" id="Environment_gbuli"]
+background_mode = 2
+sky = SubResource("Sky_8jen4")
+tonemap_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_gsrar"]
+offsets = PackedFloat32Array(0.13380282, 0.46995708, 0.6008584, 0.697318)
+colors = PackedColorArray(0.1971038, 0.3620981, 0.015705498, 1, 0.32000142, 0.5664613, 0.03593827, 1, 0.46161225, 0.8095433, 0.05523088, 1, 0.6370001, 0.98, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ur1lw"]
+gradient = SubResource("Gradient_gsrar")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3161p"]
+emission_shape = 1
+emission_sphere_radius = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 1.3299999
+hue_variation_min = -0.08000002
+hue_variation_max = 0.17999998
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jpe1n"]
+render_priority = 0
+shader = ExtResource("3_gbuli")
+shader_parameter/gradient_texture = SubResource("GradientTexture2D_ur1lw")
+shader_parameter/vertical_gradient = ExtResource("2_8jen4")
+shader_parameter/clip_texture = ExtResource("4_jgcm1")
+shader_parameter/clip_threshold = 0.5
+shader_parameter/emission_strength = 0.5850000277875
+
+[sub_resource type="QuadMesh" id="QuadMesh_3161p"]
+material = SubResource("ShaderMaterial_jpe1n")
+size = Vector2(3, 3)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hw2dr"]
+emission_shape = 1
+emission_sphere_radius = 2.0
+angle_min = -41.49999
+angle_max = 29.600012
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 1.3299999
+hue_variation_min = -0.08000002
+hue_variation_max = 0.17999998
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytcj4"]
+render_priority = 0
+shader = ExtResource("3_gbuli")
+shader_parameter/gradient_texture = SubResource("GradientTexture2D_ur1lw")
+shader_parameter/vertical_gradient = ExtResource("2_8jen4")
+shader_parameter/clip_texture = ExtResource("5_qsgvc")
+shader_parameter/clip_threshold = 0.5
+shader_parameter/emission_strength = 0.5850000277875
+
+[sub_resource type="QuadMesh" id="QuadMesh_5racn"]
+material = SubResource("ShaderMaterial_ytcj4")
+size = Vector2(3, 3)
+
+[node name="FoliageDemo" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gbuli")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.64728224, -0.66012824, 0.38112515, 2.7805946e-08, 0.49999994, 0.86602545, -0.7622504, -0.56056285, 0.32364106, 0, 14.093078, 0)
+shadow_enabled = true
+
+[node name="Tree" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042408943, 0, 0)
+
+[node name="GPUParticleFoliage" type="Node3D" parent="Tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15620273, 7.4421854, 0.8821844)
+script = ExtResource("1_gsrar")
+amount = 15
+emission_sphere_radius = 3.5
+quad_size = 3.0
+gradient_texture = SubResource("GradientTexture2D_ur1lw")
+vertical_gradient = ExtResource("2_8jen4")
+
+[node name="Foliage" type="GPUParticles3D" parent="Tree/GPUParticleFoliage"]
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_3161p")
+draw_pass_1 = SubResource("QuadMesh_3161p")
+
+[node name="Foliage2" type="GPUParticles3D" parent="Tree/GPUParticleFoliage"]
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_hw2dr")
+draw_pass_1 = SubResource("QuadMesh_5racn")
+
+[node name="GPUParticleFoliage2" type="Node3D" parent="Tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.096952, 4.689031, 1.1666765)
+script = ExtResource("1_gsrar")
+amount = 5
+emission_sphere_radius = 2.0
+quad_size = 3.0
+gradient_texture = SubResource("GradientTexture2D_ur1lw")
+vertical_gradient = ExtResource("2_8jen4")
+
+[node name="Foliage" type="GPUParticles3D" parent="Tree/GPUParticleFoliage2"]
+amount = 3
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_3161p")
+draw_pass_1 = SubResource("QuadMesh_3161p")
+
+[node name="Foliage2" type="GPUParticles3D" parent="Tree/GPUParticleFoliage2"]
+amount = 3
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_hw2dr")
+draw_pass_1 = SubResource("QuadMesh_5racn")
+
+[node name="tree2" parent="Tree" instance=ExtResource("2_eqjgf")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0085855, 14.567623)
+fov = 50.0

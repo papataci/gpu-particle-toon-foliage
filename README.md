@@ -2,7 +2,7 @@
  
 Simple implementation of the "traditional" way of mimicking anime-like foliage via GPU Particles.
 
-![demo](https://github.com/user-attachments/assets/66719cf6-90d1-43b5-b5a4-4504001e1265)
+![demo](https://github.com/user-attachments/assets/822ab4d9-35a5-4081-95a4-1d2817d227fa)
 
 A 2D gradient texture controls the radial distribution of color, a 1D texture multiplies from bottom to top for added fake illumination.
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvmr1vukaure8"]
+[gd_scene load_steps=38 format=3 uid="uid://bvmr1vukaure8"]
 
 [ext_resource type="Script" uid="uid://ku8kqyqwtu5c" path="res://assets/foliage/foliage.gd" id="1_gsrar"]
 [ext_resource type="Texture2D" uid="uid://dvlkmypwjfxh8" path="res://assets/foliage/texture/temp_cert_grad.tres" id="2_8jen4"]
@@ -48,7 +48,7 @@ shader_parameter/emission_strength = 0.5850000277875
 
 [sub_resource type="QuadMesh" id="QuadMesh_3161p"]
 material = SubResource("ShaderMaterial_jpe1n")
-size = Vector2(3, 3)
+size = Vector2(3.6, 3.6)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hw2dr"]
 emission_shape = 1
@@ -72,7 +72,133 @@ shader_parameter/emission_strength = 0.5850000277875
 
 [sub_resource type="QuadMesh" id="QuadMesh_5racn"]
 material = SubResource("ShaderMaterial_ytcj4")
-size = Vector2(3, 3)
+size = Vector2(3.6, 3.6)
+
+[sub_resource type="Gradient" id="Gradient_w5ve2"]
+offsets = PackedFloat32Array(0.13299663, 0.3939394, 0.5993266, 0.6936027)
+colors = PackedColorArray(0.6, 0.5356, 0.047999993, 1, 0.89, 0.54215837, 0.29369998, 1, 0.63, 0.47292, 0.075600006, 1, 0.89, 0.84194005, 0.1691, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gsrar"]
+gradient = SubResource("Gradient_w5ve2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8jen4"]
+emission_shape = 1
+emission_sphere_radius = 3.17
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 1.3299999
+hue_variation_min = -0.08000002
+hue_variation_max = 0.17999998
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5l5sr"]
+load_path = "res://.godot/imported/leaf2.png-211056adcfcfefae251e16c9c43bc9cf.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p47i8"]
+render_priority = 0
+shader = ExtResource("3_gbuli")
+shader_parameter/gradient_texture = SubResource("GradientTexture2D_gsrar")
+shader_parameter/vertical_gradient = ExtResource("2_8jen4")
+shader_parameter/clip_texture = SubResource("CompressedTexture2D_5l5sr")
+shader_parameter/clip_threshold = 0.5
+shader_parameter/emission_strength = 0.5850000277875
+
+[sub_resource type="QuadMesh" id="QuadMesh_5l5sr"]
+lightmap_size_hint = Vector2i(26, 26)
+material = SubResource("ShaderMaterial_p47i8")
+add_uv2 = true
+size = Vector2(4.845, 4.845)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5racn"]
+emission_shape = 1
+emission_sphere_radius = 3.17
+angle_min = -41.49999
+angle_max = 29.600012
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 1.3299999
+hue_variation_min = -0.08000002
+hue_variation_max = 0.17999998
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_etl3u"]
+load_path = "res://.godot/imported/leaf3.png-affb58a975905c25ca20750414bb91a8.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vr4f7"]
+render_priority = 0
+shader = ExtResource("3_gbuli")
+shader_parameter/gradient_texture = SubResource("GradientTexture2D_gsrar")
+shader_parameter/vertical_gradient = ExtResource("2_8jen4")
+shader_parameter/clip_texture = SubResource("CompressedTexture2D_etl3u")
+shader_parameter/clip_threshold = 0.5
+shader_parameter/emission_strength = 0.5850000277875
+
+[sub_resource type="QuadMesh" id="QuadMesh_8prem"]
+material = SubResource("ShaderMaterial_vr4f7")
+size = Vector2(4.845, 4.845)
+
+[sub_resource type="Gradient" id="Gradient_5l5sr"]
+offsets = PackedFloat32Array(0.12289562, 0.31986532, 0.5286195, 0.75084174)
+colors = PackedColorArray(0.26666665, 0.5, 0, 1, 0.030000009, 0.6, 0.10600008, 1, 0.42250004, 0.65, 0, 1, 0.81960785, 0.80784315, 0.05490196, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8jen4"]
+gradient = SubResource("Gradient_5l5sr")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gbuli"]
+emission_shape = 1
+emission_sphere_radius = 2.94
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 1.3299999
+hue_variation_min = -0.08000002
+hue_variation_max = 0.17999998
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jgcm1"]
+load_path = "res://.godot/imported/leaf2.png-211056adcfcfefae251e16c9c43bc9cf.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsgvc"]
+render_priority = 0
+shader = ExtResource("3_gbuli")
+shader_parameter/gradient_texture = SubResource("GradientTexture2D_8jen4")
+shader_parameter/vertical_gradient = ExtResource("2_8jen4")
+shader_parameter/clip_texture = SubResource("CompressedTexture2D_jgcm1")
+shader_parameter/clip_threshold = 0.5
+shader_parameter/emission_strength = 0.5850000277875
+
+[sub_resource type="QuadMesh" id="QuadMesh_vm7je"]
+lightmap_size_hint = Vector2i(25, 25)
+material = SubResource("ShaderMaterial_qsgvc")
+add_uv2 = true
+size = Vector2(4.71, 4.71)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_itsg2"]
+emission_shape = 1
+emission_sphere_radius = 2.94
+angle_min = -41.49999
+angle_max = 29.600012
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 1.3299999
+hue_variation_min = -0.08000002
+hue_variation_max = 0.17999998
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6u4tm"]
+load_path = "res://.godot/imported/leaf3.png-affb58a975905c25ca20750414bb91a8.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhxvs"]
+render_priority = 0
+shader = ExtResource("3_gbuli")
+shader_parameter/gradient_texture = SubResource("GradientTexture2D_8jen4")
+shader_parameter/vertical_gradient = ExtResource("2_8jen4")
+shader_parameter/clip_texture = SubResource("CompressedTexture2D_6u4tm")
+shader_parameter/clip_threshold = 0.5
+shader_parameter/emission_strength = 0.5850000277875
+
+[sub_resource type="QuadMesh" id="QuadMesh_8jpgv"]
+material = SubResource("ShaderMaterial_bhxvs")
+size = Vector2(4.71, 4.71)
 
 [node name="FoliageDemo" type="Node3D"]
 
@@ -83,19 +209,19 @@ environment = SubResource("Environment_gbuli")
 transform = Transform3D(0.64728224, -0.66012824, 0.38112515, 2.7805946e-08, 0.49999994, 0.86602545, -0.7622504, -0.56056285, 0.32364106, 0, 14.093078, 0)
 shadow_enabled = true
 
-[node name="Tree" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042408943, 0, 0)
+[node name="TreeSpring" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.710794, 0, 0)
 
-[node name="GPUParticleFoliage" type="Node3D" parent="Tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15620273, 7.4421854, 0.8821844)
+[node name="GPUParticleFoliage" type="Node3D" parent="TreeSpring"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1562028, 6.964567, 0.8821844)
 script = ExtResource("1_gsrar")
 amount = 15
-emission_sphere_radius = 3.5
-quad_size = 3.0
+emission_sphere_radius = 3.57
+quad_size = 3.6
 gradient_texture = SubResource("GradientTexture2D_ur1lw")
 vertical_gradient = ExtResource("2_8jen4")
 
-[node name="Foliage" type="GPUParticles3D" parent="Tree/GPUParticleFoliage"]
+[node name="Foliage" type="GPUParticles3D" parent="TreeSpring/GPUParticleFoliage"]
 lifetime = 100000.0
 explosiveness = 1.0
 fixed_fps = 5
@@ -104,7 +230,7 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_3161p")
 draw_pass_1 = SubResource("QuadMesh_3161p")
 
-[node name="Foliage2" type="GPUParticles3D" parent="Tree/GPUParticleFoliage"]
+[node name="Foliage2" type="GPUParticles3D" parent="TreeSpring/GPUParticleFoliage"]
 lifetime = 100000.0
 explosiveness = 1.0
 fixed_fps = 5
@@ -113,16 +239,16 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_hw2dr")
 draw_pass_1 = SubResource("QuadMesh_5racn")
 
-[node name="GPUParticleFoliage2" type="Node3D" parent="Tree"]
+[node name="GPUParticleFoliage2" type="Node3D" parent="TreeSpring"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.096952, 4.689031, 1.1666765)
 script = ExtResource("1_gsrar")
 amount = 5
 emission_sphere_radius = 2.0
-quad_size = 3.0
+quad_size = 3.6
 gradient_texture = SubResource("GradientTexture2D_ur1lw")
 vertical_gradient = ExtResource("2_8jen4")
 
-[node name="Foliage" type="GPUParticles3D" parent="Tree/GPUParticleFoliage2"]
+[node name="Foliage" type="GPUParticles3D" parent="TreeSpring/GPUParticleFoliage2"]
 amount = 3
 lifetime = 100000.0
 explosiveness = 1.0
@@ -132,7 +258,7 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_3161p")
 draw_pass_1 = SubResource("QuadMesh_3161p")
 
-[node name="Foliage2" type="GPUParticles3D" parent="Tree/GPUParticleFoliage2"]
+[node name="Foliage2" type="GPUParticles3D" parent="TreeSpring/GPUParticleFoliage2"]
 amount = 3
 lifetime = 100000.0
 explosiveness = 1.0
@@ -142,8 +268,133 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_hw2dr")
 draw_pass_1 = SubResource("QuadMesh_5racn")
 
-[node name="tree2" parent="Tree" instance=ExtResource("2_eqjgf")]
+[node name="tree2" parent="TreeSpring" instance=ExtResource("2_eqjgf")]
+
+[node name="TreeAutumn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.911712, 0, 0)
+
+[node name="tree2" parent="TreeAutumn" instance=ExtResource("2_eqjgf")]
+transform = Transform3D(0.9472606, 0, 0.3204642, 0, 1, 0, -0.3204642, 0, 0.9472606, 0.029100418, 0, 0)
+
+[node name="GPUParticleFoliage" type="Node3D" parent="TreeAutumn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37617493, 7.6837406, 0.8609171)
+script = ExtResource("1_gsrar")
+emission_sphere_radius = 3.17
+quad_size = 4.845
+gradient_texture = SubResource("GradientTexture2D_gsrar")
+vertical_gradient = ExtResource("2_8jen4")
+
+[node name="Foliage" type="GPUParticles3D" parent="TreeAutumn/GPUParticleFoliage"]
+amount = 9
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_8jen4")
+draw_pass_1 = SubResource("QuadMesh_5l5sr")
+
+[node name="Foliage2" type="GPUParticles3D" parent="TreeAutumn/GPUParticleFoliage"]
+amount = 9
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_5racn")
+draw_pass_1 = SubResource("QuadMesh_8prem")
+
+[node name="GPUParticleFoliage2" type="Node3D" parent="TreeAutumn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5276623, 4.979313, 0.6734657)
+script = ExtResource("1_gsrar")
+amount = 15
+emission_sphere_radius = 3.17
+quad_size = 4.845
+gradient_texture = SubResource("GradientTexture2D_gsrar")
+vertical_gradient = ExtResource("2_8jen4")
+
+[node name="Foliage" type="GPUParticles3D" parent="TreeAutumn/GPUParticleFoliage2"]
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_8jen4")
+draw_pass_1 = SubResource("QuadMesh_5l5sr")
+
+[node name="Foliage2" type="GPUParticles3D" parent="TreeAutumn/GPUParticleFoliage2"]
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_5racn")
+draw_pass_1 = SubResource("QuadMesh_8prem")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0085855, 14.567623)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0096636, 5.0085855, 19.79048)
 fov = 50.0
+
+[node name="TreeSummer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09728718, 0, 0)
+
+[node name="tree3" parent="TreeSummer" instance=ExtResource("2_eqjgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23625088, 0, 0)
+
+[node name="GPUParticleFoliage" type="Node3D" parent="TreeSummer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.834733, 8.128775, 0.71009636)
+script = ExtResource("1_gsrar")
+amount = 11
+emission_sphere_radius = 2.94
+quad_size = 4.71
+gradient_texture = SubResource("GradientTexture2D_8jen4")
+vertical_gradient = ExtResource("2_8jen4")
+
+[node name="Foliage" type="GPUParticles3D" parent="TreeSummer/GPUParticleFoliage"]
+amount = 6
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_gbuli")
+draw_pass_1 = SubResource("QuadMesh_vm7je")
+
+[node name="Foliage2" type="GPUParticles3D" parent="TreeSummer/GPUParticleFoliage"]
+amount = 6
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_itsg2")
+draw_pass_1 = SubResource("QuadMesh_8jpgv")
+
+[node name="GPUParticleFoliage2" type="Node3D" parent="TreeSummer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3492594, 4.6574492, 0.2915516)
+script = ExtResource("1_gsrar")
+amount = 11
+emission_sphere_radius = 2.94
+quad_size = 4.71
+gradient_texture = SubResource("GradientTexture2D_8jen4")
+vertical_gradient = ExtResource("2_8jen4")
+
+[node name="Foliage" type="GPUParticles3D" parent="TreeSummer/GPUParticleFoliage2"]
+amount = 6
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_gbuli")
+draw_pass_1 = SubResource("QuadMesh_vm7je")
+
+[node name="Foliage2" type="GPUParticles3D" parent="TreeSummer/GPUParticleFoliage2"]
+amount = 6
+lifetime = 100000.0
+explosiveness = 1.0
+fixed_fps = 5
+local_coords = true
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_itsg2")
+draw_pass_1 = SubResource("QuadMesh_8jpgv")

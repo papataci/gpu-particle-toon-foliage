@@ -1,8 +1,10 @@
 [gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://dvlkmypwjfxh8"]
 
 [sub_resource type="Gradient" id="Gradient_cukep"]
+resource_local_to_scene = true
 offsets = PackedFloat32Array(0.11751152, 1)
 colors = PackedColorArray(0.014437786, 0.16401106, 0, 1, 1, 1, 1, 1)
 
 [resource]
+resource_local_to_scene = true
 gradient = SubResource("Gradient_cukep")

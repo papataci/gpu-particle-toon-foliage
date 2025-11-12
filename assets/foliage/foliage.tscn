@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://vdll2lg1nf4x"]
+[gd_scene load_steps=15 format=3 uid="uid://vdll2lg1nf4x"]
 
 [ext_resource type="Script" uid="uid://ku8kqyqwtu5c" path="res://assets/foliage/foliage.gd" id="1_7dcpq"]
 [ext_resource type="Shader" uid="uid://35e25t16q2i0" path="res://assets/foliage/foliage.gdshader" id="2_hw2dr"]
 [ext_resource type="Texture2D" uid="uid://dvlkmypwjfxh8" path="res://assets/foliage/texture/temp_cert_grad.tres" id="2_w453x"]
 
 [sub_resource type="Gradient" id="Gradient_w5ve2"]
-offsets = PackedFloat32Array(0.13299663, 0.3939394, 0.5993266, 0.6936027)
-colors = PackedColorArray(0.6, 0.5356, 0.047999993, 1, 0.89, 0.54215837, 0.29369998, 1, 0.63, 0.47292, 0.075600006, 1, 0.89, 0.84194005, 0.1691, 1)
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0.13357401, 0.3838384, 0.5433213, 0.6936027)
+colors = PackedColorArray(0.28882793, 0.493559, 3.85046e-07, 1, 0.40339574, 0.73323447, 0.3379093, 1, 0.5614956, 0.8195745, 0.3728769, 1, 0.89, 0.84194005, 0.1691, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gsrar"]
 gradient = SubResource("Gradient_w5ve2")
@@ -14,8 +15,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8jen4"]
+resource_local_to_scene = true
 emission_shape = 1
-emission_sphere_radius = 0.945
+emission_sphere_radius = 3.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.75
 scale_max = 1.3299999
@@ -25,33 +27,33 @@ hue_variation_max = 0.17999998
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5l5sr"]
 load_path = "res://.godot/imported/leaf2.png-211056adcfcfefae251e16c9c43bc9cf.s3tc.ctex"
 
-[sub_resource type="Gradient" id="Gradient_5l5sr"]
-offsets = PackedFloat32Array(0.12289562, 0.31986532, 0.5286195, 0.75084174)
-colors = PackedColorArray(0.26666665, 0.5, 0, 1, 0.030000009, 0.6, 0.10600008, 1, 0.42250004, 0.65, 0, 1, 0.81960785, 0.80784315, 0.05490196, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ur1lw"]
-gradient = SubResource("Gradient_5l5sr")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5l5sr"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_w5ve2")
 fill = 1
-fill_from = Vector2(0.5, 0.5)
+fill_from = Vector2(0.5, 0.52136755)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p47i8"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_hw2dr")
-shader_parameter/gradient_texture = SubResource("GradientTexture2D_ur1lw")
+shader_parameter/gradient_texture = SubResource("GradientTexture2D_5l5sr")
 shader_parameter/vertical_gradient = ExtResource("2_w453x")
 shader_parameter/clip_texture = SubResource("CompressedTexture2D_5l5sr")
 shader_parameter/clip_threshold = 0.5
 shader_parameter/emission_strength = 0.5850000277875
 
 [sub_resource type="QuadMesh" id="QuadMesh_vm7je"]
-lightmap_size_hint = Vector2i(25, 25)
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(32, 32)
 material = SubResource("ShaderMaterial_p47i8")
 add_uv2 = true
-size = Vector2(4.71, 4.71)
+size = Vector2(6, 6)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5racn"]
+resource_local_to_scene = true
 emission_shape = 1
-emission_sphere_radius = 0.945
+emission_sphere_radius = 3.0
 angle_min = -41.49999
 angle_max = 29.600012
 gravity = Vector3(0, 0, 0)
@@ -64,17 +66,19 @@ hue_variation_max = 0.17999998
 load_path = "res://.godot/imported/leaf3.png-affb58a975905c25ca20750414bb91a8.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vr4f7"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_hw2dr")
-shader_parameter/gradient_texture = SubResource("GradientTexture2D_ur1lw")
+shader_parameter/gradient_texture = SubResource("GradientTexture2D_5l5sr")
 shader_parameter/vertical_gradient = ExtResource("2_w453x")
 shader_parameter/clip_texture = SubResource("CompressedTexture2D_etl3u")
 shader_parameter/clip_threshold = 0.5
 shader_parameter/emission_strength = 0.5850000277875
 
 [sub_resource type="QuadMesh" id="QuadMesh_8jpgv"]
+resource_local_to_scene = true
 material = SubResource("ShaderMaterial_vr4f7")
-size = Vector2(4.71, 4.71)
+size = Vector2(6, 6)
 
 [node name="GPUParticleFoliage" type="Node3D"]
 script = ExtResource("1_7dcpq")
@@ -88,7 +92,6 @@ lifetime = 100000.0
 explosiveness = 1.0
 fixed_fps = 5
 local_coords = true
-transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_8jen4")
 draw_pass_1 = SubResource("QuadMesh_vm7je")
 
@@ -98,6 +101,5 @@ lifetime = 100000.0
 explosiveness = 1.0
 fixed_fps = 5
 local_coords = true
-transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_5racn")
 draw_pass_1 = SubResource("QuadMesh_8jpgv")
